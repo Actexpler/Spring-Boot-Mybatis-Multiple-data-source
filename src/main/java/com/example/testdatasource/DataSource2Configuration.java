@@ -32,21 +32,20 @@ public class DataSource2Configuration {
         return DataSourceBuilder.create().type(com.mchange.v2.c3p0.ComboPooledDataSource.class).build();
     }
 
-    @Bean(name = "mybatis2")
-    @ConfigurationProperties(prefix = "mybatis2")
-    public org.apache.ibatis.session.Configuration globalConfiguration(){
-        return new org.apache.ibatis.session.Configuration();
-    }
+//    @Bean(name = "mybatis2")
+//    @ConfigurationProperties(prefix = "mybatis2")
+//    public org.apache.ibatis.session.Configuration globalConfiguration(){
+//        return new org.apache.ibatis.session.Configuration();
+//    }
 
 
     @Bean(name = "studentSqlSessionFactory")
 //    @Primary
-    public SqlSessionFactory studentSqlSessionFactory(@Qualifier("dataSource2") DataSource dataSource,
-                                                      @Qualifier("mybatis2") org.apache.ibatis.session.Configuration config) throws Exception {
+    public SqlSessionFactory studentSqlSessionFactory(@Qualifier("dataSource2") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
-        bean.setConfiguration(config);
         bean.setDataSource(dataSource);
-        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mybatis/mapper/student/*.xml"));
+        bean.setConfigLocation(new PathMatchingResourcePatternResolver().getResource("classpath:mybatis/mybatis-config.xml"));
+//        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mybatis/mapper/student/*.xml"));
         return bean.getObject();
     }
 

@@ -3,7 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.testdatasource.mapper.student.StudentMapper">
-    <resultMap id="BASE_MAP" type="com.example.testdatasource.pojo.Student">
+    <resultMap id="BASE_MAP" type="Student">
         <id column="id" property="id"/>
         <result column="name" property="name"/>
     </resultMap>
@@ -14,7 +14,7 @@
     </select>
 
     <!--List<Student> getList();-->
-    <select id="getList" resultType="com.example.testdatasource.pojo.Student">
+    <select id="getList" resultType="Student">
         select * from student
     </select>
 </mapper>

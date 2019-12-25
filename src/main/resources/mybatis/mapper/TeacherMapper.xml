@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.testdatasource.mapper.TeacherMapper">
-    <resultMap id="BASE_MAP" type="com.example.testdatasource.pojo.Teacher">
+    <resultMap id="BASE_MAP" type="Teacher">
         <id column="id" property="id"/>
         <result column="name" property="name"/>
     </resultMap>

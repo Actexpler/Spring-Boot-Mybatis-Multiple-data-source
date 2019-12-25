@@ -4,13 +4,12 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
-<!--    <typeAliases>-->
-<!--        <package name="com.example.testdatasource.pojo"/>-->
-<!--&lt;!&ndash;        <typeAlias type="com.example.testdatasource.pojo.Student" alias="Student"/>&ndash;&gt;-->
-<!--    </typeAliases>-->
+    <typeAliases>
+        <package name="com.example.testdatasource.pojo"/>
+    </typeAliases>
 
-<!--    <mappers>-->
-<!--        <mapper resource="mybatis/mapper/*/*.xml"></mapper>-->
-<!--    </mappers>-->
-
+    <mappers>
+        <mapper resource="mybatis/mapper/TeacherMapper.xml"></mapper>
+        <mapper resource="mybatis/mapper/student/StudentMapper.xml"></mapper>
+    </mappers>
 </configuration>
