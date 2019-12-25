@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.testdatasource.mapper.student.StudentMapper">
+    <resultMap id="BASE_MAP" type="com.example.testdatasource.pojo.Student">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+    </resultMap>
+  <!--Student getStudent(String id);-->
+    <select id="getStudent" resultMap="BASE_MAP">
+        select * from student
+        where id = #{id}
+    </select>
+
+    <!--List<Student> getList();-->
+    <select id="getList" resultType="com.example.testdatasource.pojo.Student">
+        select * from student
+    </select>
+</mapper>
